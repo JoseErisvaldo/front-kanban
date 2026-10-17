@@ -1,9 +1,10 @@
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { LoginView, useAuthStore } from "./modules/root/pages/features/auth";
+import { LoginView } from "./modules/root/pages/features/auth";
 import { HomeView } from "./modules/root/pages/features/home";
 import { NotFoundView } from "./modules/root/pages/features/not-found";
 import { ProjectsView } from "./modules/root/pages/features/projects";
 import { AppLayout } from "./shared/components/layout";
+import { useAuthStore } from "./shared/store";
 
 function LoginRoute() {
   const session = useAuthStore((state) => state.session);

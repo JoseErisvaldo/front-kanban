@@ -5,47 +5,23 @@ import { ProjectsEmptyState } from "../components/projects-empty-state";
 import { ProjectsHeader } from "../components/projects-header";
 import { ProjectsList } from "../components/projects-list";
 import { ProjectsSearch } from "../components/projects-search";
-import { useCreateProjectMutation } from "../mutations/use-create-project-mutation";
-import type { Project } from "../types/project.types";
+import { useCreateProject } from "../hooks/handle-create-project";
 
 export function ProjectsView() {
-  const createProjectMutation = useCreateProjectMutation();
-  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
-  const [projectName, setProjectName] = useState("");
-  const [projectDescription, setProjectDescription] = useState("");
   const [search, setSearch] = useState("");
-  const [projects, setProjects] = useState<Project[]>([]);
 
-  async function handleCreateProject(): Promise<void> {
-    const name = projectName.trim();
-    const description = projectDescription.trim();
-    if (!name || !description || createProjectMutation.isPending) return;
-
-    try {
-      const createdProject = await createProjectMutation.mutateAsync({
-        name,
-        description,
-      });
-      setProjects((currentProjects) => [
-        ...currentProjects,
-        {
-          ...createdProject,
-          createdAt:
-            createdProject.createdAt ??
-            new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium" }).format(new Date()),
-        },
-      ]);
-      setProjectName("");
-      setProjectDescription("");
-      setIsCreateDialogOpen(false);
-    } catch {
-      // Keep the dialog open so the user can review the error and retry.
-    }
-  }
-
-  const filteredProjects = projects.filter((project) =>
-    project.name.toLocaleLowerCase("pt-BR").includes(search.trim().toLocaleLowerCase("pt-BR")),
-  );
+  const {
+    isCreateDialogOpen,
+    projectName,
+    projectDescription,
+    createProjectError,
+    isCreatingProject,
+    setProjectName,
+    setProjectDescription,
+    handleCreateProject,
+    handleOpenCreateDialog,
+    handleCloseCreateDialog,
+  } = useCreateProject();
 
   return (
     <Box
@@ -60,26 +36,24 @@ export function ProjectsView() {
       }}
     >
       <Box sx={{ width: "min(100%, 1120px)", mx: "auto" }}>
-        <ProjectsHeader onCreateClick={() => setIsCreateDialogOpen(true)} />
+        <ProjectsHeader onCreateClick={handleOpenCreateDialog} />
         <ProjectsSearch value={search} onChange={setSearch} />
-        {filteredProjects.length > 0 ? (
-          <ProjectsList projects={filteredProjects} />
-        ) : (
-          <ProjectsEmptyState
-            hasSearch={Boolean(search.trim())}
-            onCreateClick={() => setIsCreateDialogOpen(true)}
-          />
-        )}
+        <ProjectsList projects={[]} />
+        <ProjectsEmptyState
+          hasSearch={Boolean(search.trim())}
+          onCreateClick={handleOpenCreateDialog}
+        />
       </Box>
+
       <CreateProjectDialog
         open={isCreateDialogOpen}
         projectName={projectName}
         projectDescription={projectDescription}
-        error={createProjectMutation.error?.message ?? null}
-        isSubmitting={createProjectMutation.isPending}
+        error={createProjectError}
+        isSubmitting={isCreatingProject}
         onProjectNameChange={setProjectName}
         onProjectDescriptionChange={setProjectDescription}
-        onClose={() => setIsCreateDialogOpen(false)}
+        onClose={handleCloseCreateDialog}
         onSubmit={handleCreateProject}
       />
     </Box>
