@@ -1,12 +1,27 @@
-import { AppBar, Box, IconButton, Paper, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Paper,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppSidebar, FLUXTIVA_SIDEBAR_CONFIG } from "../../../../../../shared/components/layout";
+import {
+  AppSidebar,
+  FLUXTIVA_SIDEBAR_CONFIG,
+} from "../../../../../../shared/components/layout";
 import { useAuthStore } from "../../auth";
 
 function MenuGlyph() {
   return (
-    <Box component="svg" aria-hidden="true" viewBox="0 0 24 24" sx={{ width: 22, height: 22 }}>
+    <Box
+      component="svg"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      sx={{ width: 22, height: 22 }}
+    >
       <path
         d="M4 7h16M4 12h16M4 17h16"
         fill="none"
@@ -182,7 +197,8 @@ export function HomeView() {
               lineHeight: 1.7,
             }}
           >
-            Seu login foi realizado e a sessão está salva neste dispositivo.
+            Seu espaço está pronto. Organize suas tarefas e acompanhe o
+            progresso do time em um só lugar.
           </Typography>
         </Paper>
       </Box>
