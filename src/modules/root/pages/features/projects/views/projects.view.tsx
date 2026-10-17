@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
-import { CreateProjectDialog } from "../components/create-project-dialog";
-import { ProjectsEmptyState } from "../components/projects-empty-state";
-import { ProjectsHeader } from "../components/projects-header";
-import { ProjectsList } from "../components/projects-list";
-import { ProjectsSearch } from "../components/projects-search";
+import { CreateProjectDialog } from "../components/create-projects/create-project-dialog";
+import { ProjectsEmptyState } from "../components/create-projects/projects-empty-state";
+import { ProjectsHeader } from "../components/create-projects/projects-header";
+import { ProjectsList } from "../components/create-projects/projects-list";
+import { ProjectsSearch } from "../components/create-projects/projects-search";
 import { useCreateProject } from "../hooks/handle-create-project";
 
 export function ProjectsView() {

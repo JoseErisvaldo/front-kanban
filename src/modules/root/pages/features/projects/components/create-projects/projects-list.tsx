@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import type { Project } from "../types/project.types";
+import type { Project } from "../../types/project.types";
 import { ProjectCard } from "./project-card";
 
 type ProjectsListProps = {

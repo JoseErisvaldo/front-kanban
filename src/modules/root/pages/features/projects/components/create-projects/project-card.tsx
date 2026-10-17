@@ -1,6 +1,6 @@
 import FolderOpenRoundedIcon from "@mui/icons-material/FolderOpenRounded";
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import type { Project } from "../types/project.types";
+import type { Project } from "../../types/project.types";
 
 type ProjectCardProps = {
   project: Project;
@@ -14,7 +14,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         border: "1px solid #e8eaf2",
         borderRadius: "16px",
         bgcolor: "#fff",
-        transition: "border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease",
+        transition:
+          "border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease",
         "&:hover": {
           borderColor: "#d5d0fb",
           boxShadow: "0 12px 32px rgba(35, 43, 77, 0.08)",
@@ -37,10 +38,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         >
           <FolderOpenRoundedIcon />
         </Box>
-        <Typography component="h2" sx={{ color: "#252941", fontSize: 16, fontWeight: 700 }}>
+        <Typography
+          component="h2"
+          sx={{ color: "#252941", fontSize: 16, fontWeight: 700 }}
+        >
           {project.name}
         </Typography>
-        <Typography sx={{ mt: 0.75, color: "#777d91", fontSize: 13, lineHeight: 1.6 }}>
+        <Typography
+          sx={{ mt: 0.75, color: "#777d91", fontSize: 13, lineHeight: 1.6 }}
+        >
           {project.description}
         </Typography>
         {project.createdAt && (
