@@ -1,3 +1,4 @@
+import ProjectIcon from "@mui/icons-material/FolderRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import type { ReactNode } from "react";
@@ -25,6 +26,11 @@ export const FLUXTIVA_SIDEBAR_CONFIG: AppSidebarConfig = {
       label: "Home",
       to: "/home",
       icon: <HomeRoundedIcon fontSize="small" />,
+    },
+    {
+      label: "Projetos",
+      to: "/projects",
+      icon: <ProjectIcon fontSize="small" />,
     },
   ],
   footerItems: [

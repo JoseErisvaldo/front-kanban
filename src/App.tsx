@@ -1,6 +1,9 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { LoginView, useAuthStore } from "./modules/root/pages/features/auth";
 import { HomeView } from "./modules/root/pages/features/home";
+import { NotFoundView } from "./modules/root/pages/features/not-found";
+import { ProjectsView } from "./modules/root/pages/features/projects";
+import { AppLayout } from "./shared/components/layout";
 
 function LoginRoute() {
   const session = useAuthStore((state) => state.session);
@@ -11,7 +14,21 @@ function LoginRoute() {
 function ProtectedHomeRoute() {
   const session = useAuthStore((state) => state.session);
 
-  return session ? <HomeView /> : <Navigate to="/" replace />;
+  if (!session) return <Navigate to="/" replace />;
+
+  return <Outlet />;
+}
+
+function AuthenticatedLayout() {
+  const clearSession = useAuthStore((state) => state.clearSession);
+
+  return (
+    <AppLayout
+      onLogout={() => {
+        clearSession();
+      }}
+    />
+  );
 }
 
 function App() {
@@ -19,8 +36,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginRoute />} />
-        <Route path="/home" element={<ProtectedHomeRoute />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route element={<ProtectedHomeRoute />}>
+          <Route element={<AuthenticatedLayout />}>
+            <Route path="/home" element={<HomeView />} />
+            <Route path="/projects" element={<ProjectsView />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFoundView />} />
       </Routes>
     </BrowserRouter>
   );

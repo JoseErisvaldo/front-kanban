@@ -153,11 +153,7 @@ function SidebarContents({
           {sectionLabel}
         </Typography>
       )}
-      <NavigationItems
-        items={items}
-        onItemClick={onItemClick}
-        onAction={onAction}
-      />
+      <NavigationItems items={items} onItemClick={onItemClick} onAction={onAction} />
 
       <Box sx={{ flex: 1, minHeight: 6 }} />
       {footerItems && footerItems.length > 0 && (
@@ -177,11 +173,7 @@ function SidebarContents({
             </Typography>
           )}
           <Divider sx={{ mb: 1.2, borderColor: "#eceef5" }} />
-          <NavigationItems
-            items={footerItems}
-            onItemClick={onItemClick}
-            onAction={onAction}
-          />
+          <NavigationItems items={footerItems} onItemClick={onItemClick} onAction={onAction} />
         </>
       )}
       <Typography
@@ -221,15 +213,8 @@ export function AppSidebar({
 }: AppSidebarProps) {
   return (
     <>
-      <Drawer
-        variant="permanent"
-        sx={{ ...drawerSx, display: { xs: "none", md: "block" } }}
-      >
-        <SidebarContents
-          {...config}
-          onItemClick={onItemClick}
-          onAction={onAction}
-        />
+      <Drawer variant="permanent" sx={{ ...drawerSx, display: { xs: "none", md: "block" } }}>
+        <SidebarContents {...config} onItemClick={onItemClick} onAction={onAction} />
       </Drawer>
       <Drawer
         variant="temporary"
@@ -238,11 +223,7 @@ export function AppSidebar({
         ModalProps={{ keepMounted: true }}
         sx={{ ...drawerSx, display: { xs: "block", md: "none" } }}
       >
-        <SidebarContents
-          {...config}
-          onItemClick={onItemClick ?? onClose}
-          onAction={onAction}
-        />
+        <SidebarContents {...config} onItemClick={onItemClick ?? onClose} onAction={onAction} />
       </Drawer>
     </>
   );
