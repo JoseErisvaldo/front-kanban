@@ -1,7 +1,7 @@
-import { Button } from "@mui/material";
+import { LoginView } from "./modules/root/pages/features/auth";
 
 function App() {
-  return <Button variant="contained">Hello world</Button>;
+  return <LoginView />;
 }
 
 export default App;

@@ -9,7 +9,7 @@
 
 - **Framework:** React 19 com TypeScript
 - **Build:** Rsbuild com Module Federation
-- **Estilo:** MUI v7 + Emotion
+- **Estilo:** MUI (`@mui/material`) + Emotion. Use os componentes Material UI existentes (`Button`, `TextField`, `Checkbox`, `Alert`, etc.) como primitivos de interface; CSS próprio fica para layout, identidade visual e ajustes específicos.
 - **Estado servidor:** TanStack Query v5 (`useQuery` / `useMutation`) — configurado via `@/shared/services/queries`
 - **Estado global:** Zustand v5 (uso pontual, por feature)
 - **Formulários:** React Hook Form + Zod (`zodResolver`)
@@ -109,6 +109,6 @@ export async function getMyEntityService(): Promise<MyEntity[]> {
 
 - Ao criar código novo, seguir **exatamente** a estrutura de pastas de features descrita em ARCHITECTURE.md
 - Ao revisar código, aplicar os critérios de `.github/code-review.instructions.md`
-- Ao criar componentes, preferir primitivos do Jetstream (`@maas-ds/jetstream-material`) antes de criar novos
+- Ao criar interfaces, preferir os componentes do Material UI (`@mui/material`) antes de criar controles nativos ou componentes de formulário próprios
 - Ao criar testes, sempre mockar dependências externas com `vi.mock()`
 - Validar sempre respostas de API com `.parse()` ou `.safeParse()` do Zod antes de usar os dados
