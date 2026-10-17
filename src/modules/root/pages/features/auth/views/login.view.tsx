@@ -33,12 +33,8 @@ function BoardPreview() {
             <span className="board-column__count">2</span>
           </div>
           <div className="task-card">
-            <span className="task-card__tag task-card__tag--purple">
-              DESIGN
-            </span>
-            <span className="task-card__title">
-              Revisar fluxo de onboarding
-            </span>
+            <span className="task-card__tag task-card__tag--purple">DESIGN</span>
+            <span className="task-card__title">Revisar fluxo de onboarding</span>
             <span className="task-card__meta">
               <span className="task-card__clock">◷</span> Hoje, 16:00
             </span>
@@ -46,9 +42,7 @@ function BoardPreview() {
           <div className="task-card task-card--short">
             <span className="task-card__tag task-card__tag--blue">PRODUTO</span>
             <span className="task-card__title">Mapear jornada do usuário</span>
-            <span className="task-card__avatar task-card__avatar--blue">
-              LM
-            </span>
+            <span className="task-card__avatar task-card__avatar--blue">LM</span>
           </div>
         </div>
 
@@ -59,9 +53,7 @@ function BoardPreview() {
             <span className="board-column__count">1</span>
           </div>
           <div className="task-card task-card--highlight">
-            <span className="task-card__tag task-card__tag--orange">
-              DESENVOLVIMENTO
-            </span>
+            <span className="task-card__tag task-card__tag--orange">DESENVOLVIMENTO</span>
             <span className="task-card__title">Dashboard de métricas</span>
             <span className="task-card__progress">
               <span className="task-card__progress-value" />
@@ -69,9 +61,7 @@ function BoardPreview() {
             <span className="task-card__progress-label">
               Progresso <strong>68%</strong>
             </span>
-            <span className="task-card__avatar task-card__avatar--pink">
-              AC
-            </span>
+            <span className="task-card__avatar task-card__avatar--pink">AC</span>
           </div>
           <div className="board-add">
             ＋ <span className="board-add__label">Adicionar tarefa</span>
@@ -79,12 +69,8 @@ function BoardPreview() {
         </div>
       </div>
 
-      <div className="board-preview__sparkle board-preview__sparkle--one">
-        ✳
-      </div>
-      <div className="board-preview__sparkle board-preview__sparkle--two">
-        ✳
-      </div>
+      <div className="board-preview__sparkle board-preview__sparkle--one">✳</div>
+      <div className="board-preview__sparkle board-preview__sparkle--two">✳</div>
     </div>
   );
 }
@@ -93,10 +79,7 @@ export function LoginView() {
   return (
     <main className="login-page">
       <div className="login-layout">
-        <section
-          className="login-showcase"
-          aria-label="Apresentação da plataforma"
-        >
+        <section className="login-showcase" aria-label="Apresentação da plataforma">
           <div className="login-showcase__glow login-showcase__glow--one" />
           <div className="login-showcase__glow login-showcase__glow--two" />
 
@@ -112,29 +95,18 @@ export function LoginView() {
             <h1>
               Ideias em movimento.
               <br />
-              <span className="login-showcase__headline-accent">
-                Times em sintonia.
-              </span>
+              <span className="login-showcase__headline-accent">Times em sintonia.</span>
             </h1>
             <p className="login-showcase__description">
-              Organize projetos, acompanhe cada avanço e faça grandes coisas
-              acontecerem — juntos.
+              Organize projetos, acompanhe cada avanço e faça grandes coisas acontecerem — juntos.
             </p>
             <BoardPreview />
             <div className="login-showcase__social-proof">
               <div className="avatar-stack" aria-hidden="true">
-                <span className="avatar-stack__avatar avatar-stack__avatar--one">
-                  MA
-                </span>
-                <span className="avatar-stack__avatar avatar-stack__avatar--two">
-                  JP
-                </span>
-                <span className="avatar-stack__avatar avatar-stack__avatar--three">
-                  LC
-                </span>
-                <span className="avatar-stack__avatar avatar-stack__avatar--four">
-                  +
-                </span>
+                <span className="avatar-stack__avatar avatar-stack__avatar--one">MA</span>
+                <span className="avatar-stack__avatar avatar-stack__avatar--two">JP</span>
+                <span className="avatar-stack__avatar avatar-stack__avatar--three">LC</span>
+                <span className="avatar-stack__avatar avatar-stack__avatar--four">+</span>
               </div>
               <p>
                 <strong>Times que fazem acontecer.</strong>
@@ -164,13 +136,11 @@ export function LoginView() {
             </p>
             <LoginForm />
             <p className="login-panel__signup">
-              Ainda não tem uma conta?{" "}
-              <button type="button">Fale com seu administrador</button>
+              Ainda não tem uma conta? <button type="button">Fale com seu administrador</button>
             </p>
           </div>
           <p className="login-panel__footer">
-            Ao continuar, você concorda com nossos{" "}
-            <a href="#termos">Termos de uso</a> e{" "}
+            Ao continuar, você concorda com nossos <a href="#termos">Termos de uso</a> e{" "}
             <a href="#privacidade">Política de privacidade</a>.
           </p>
         </section>

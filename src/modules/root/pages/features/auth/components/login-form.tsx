@@ -48,6 +48,7 @@ export function LoginForm() {
     formState: { errors, isSubmitting },
     isPasswordVisible,
     notice,
+    isRequestError,
     onSubmit,
     togglePasswordVisibility,
     showPasswordRecoveryNotice,
@@ -166,7 +167,11 @@ export function LoginForm() {
       </div>
 
       {notice && (
-        <Alert className="login-form__notice" severity="info">
+        <Alert
+          className="login-form__notice"
+          severity={isRequestError ? "error" : "info"}
+          role="status"
+        >
           {notice}
         </Alert>
       )}
